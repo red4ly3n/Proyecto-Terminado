@@ -1,0 +1,1146 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../IMG/fondo-pagina-juegos.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(6px);
+    height: 100%;
+    font-family:Cinzel;
+}
+
+h1{
+    font-weight: bold;
+}
+
+.menu_bar{
+    display: none;
+    background-color: rgb(34, 38, 59);
+    z-index: 100;
+}
+.logo{
+    position: absolute;
+    font-size: 40px;
+    right: 30px;
+    top: 6px;
+}
+.logo a{
+    color:#FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+header{
+    width: 100%;
+}
+
+header nav{
+    z-index: 100;
+    background-color: rgb(34, 38, 59);
+    width: 100%;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+header nav ul{
+    list-style: none;
+}
+
+header nav ul li{
+    display: inline-block; 
+    position: relative;
+}
+
+header nav ul li:hover{
+    background-color: darkslategray;
+}
+
+header nav ul li a{
+    color: #FFD700;
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+}
+
+header nav ul li span{
+    position: relative;
+    top: 8px;
+    right: 2px;
+}
+
+header nav ul li span img{
+    width: 25px;
+    height: 25px;
+    color: #FFD700;
+}
+
+header nav ul li:hover .children{
+    display: block;
+}
+
+header nav ul li .children{
+    display: none;
+    background-color: darkslategray;
+    position: absolute;
+    width: 150%;
+    z-index: 100;
+}
+
+header nav ul li .children li{
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+
+header nav ul li .children li a{
+   display: block;
+}
+
+@media screen and (max-width:992px){
+    body{   
+       padding-top: 80px;
+   }
+   .menu_bar{
+       display: block;
+       width: 100%;
+       position: fixed;
+       top: 0;
+   }
+
+   .logo{
+       display: none;
+   }
+
+   .menu_bar .bt-menu{
+       display: block;
+       padding: 26px;
+       color: #FFD700;
+       overflow: hidden;
+       font-size: 25px;
+       font-weight: bold;
+       text-decoration: none;
+   }
+
+   .menu_bar i{
+       float: right;
+   }
+
+   header nav{
+       width: 80%;
+       height: calc(100%-80px);
+       position: fixed;
+       left: 0;
+       margin: 0;
+       overflow: hidden;
+   }
+
+   header nav ul li{
+       display: block;
+       border-bottom: 1px solid rgba(255, 255, 255, .5);
+   }
+
+   header nav ul li a{
+       display: block;
+   }
+
+   header nav ul li:hover .children{
+       display: none;
+   }
+
+   header nav ul li .children{
+       width: 100%;
+       position: relative;
+   }
+   
+   header nav ul li .children li a{
+       margin-left: 20px;
+   }
+}
+/* Container main */
+.container{
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+main{
+    width: 100%;
+    text-align: justify;
+    color: white;
+}
+.gift{
+    position: relative;
+    width: 90%;
+    display: block;
+    align-items: center;
+}
+.gift .nmb{
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: auto;
+    z-index: 1;
+}
+.gift .nmb h1{
+    color: #FFD700;
+}
+/* Juegos */
+.cont_juegos{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px auto; 
+    height: auto;
+    width: 100%;
+    max-width: 1250px;
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+h1.titulo{
+    color: #FFD700;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    padding: 5px;
+    top: -5px;
+    left: 0px;
+    text-align: center;
+}
+.card{
+    position: relative;
+    display: inline-block;
+    width: 270px;
+    height: 320px;
+    margin: 60px 33px;
+    z-index: 1;
+}
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0px 5px 10px #000;
+}
+.card .front img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .front h3{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 15px;
+    color: #fff;
+    background: rgb(34, 38, 59, 0.8);
+    text-align: center;
+}
+.card .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(34, 38, 59);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0px 5px 10px #000;
+}
+.card .back .link{
+    border-top: 1px solid #f3f3f3;
+    height: 50px;
+    line-height: 50px;
+    
+}
+.card .back .link a{
+    color: #f3f3f3;
+    font-size: 20px;
+    text-decoration: none;
+}
+.card .back .link a span{
+    position: relative;
+    top: 7px;
+}
+.card .back .link a span img{
+    width: 30px;
+    height: 30px;
+}
+.card .back h3{
+    font-size: 20px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+.card .back p{
+    letter-spacing: 1px;
+    font-size: 14px;
+    
+}
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+@media screen and (max-width:992px){
+    .cont_juegos{
+        display: inline-block;
+    }
+    .card{
+        margin: 60px 60px;
+    }
+}
+@media screen and (max-width:880px){
+    .card{
+        margin: 60px 40px;
+    }
+}
+@media screen and (max-width:790px){
+    .card{
+        width: 240px;
+        height: 270px;
+        margin: 60px 45px;
+    }
+}
+@media screen and (max-width:750px){
+    .card{
+        width: 240px;
+        height: 270px;
+        margin: 60px 25px;
+    }
+}
+@media screen and (max-width:690px){
+    .card{
+        display: block;
+        margin: 95px auto;
+    }
+}
+/* Quienes somos */
+.container .quienes_somos{
+    position: relative;
+    display: block;
+    align-items: center;
+    padding: 60px;
+    margin: 0px auto; 
+    height: auto;
+    width: 100%;
+    max-width: 1250px;
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+}
+.texto_quienessomos{
+    width: 100%;
+    position: relative;
+    color: #FFD700;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    text-align: justify;
+    top: 10px;
+}
+/* Redes */
+.redes{
+    position: relative; 
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    border-top: 1px solid;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+.menu_abajo{
+    width: 90%;
+    display: flex;
+    margin: auto; 
+}
+.menu_abajo>*{
+    width: 25%;
+}
+article{
+    margin: 20px 10px;
+    text-align: center;
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
+article h2,h4{
+    padding: 10px;
+}
+article a{
+    text-decoration: none;
+    color: #fff;
+}
+article span{
+    position: relative;
+    top: 5px;
+}
+article span img{
+    width: 20px;
+    height: 20px;
+}
+@media screen and (max-width:690px){
+    .menu_abajo{
+        display: block;
+    }
+    .menu_abajo>*{
+        margin: 10px auto;
+        width: 70%;
+    }
+}
+/* CSS Página de Servicios*/
+
+.cont_servicios {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 800px;
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    background-color: transparent;
+    justify-content: center;
+}
+
+.titulo_servicios {
+    color: #FFD700;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 5px;
+    top: -5px;
+    justify-content: center;
+}
+
+.boton_home {
+    width: 110px;
+    height: 55px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    background-color: rgba(192, 209, 204, 0.858);
+    animation: bounce 2s infinite;
+    background-color: rgba(144, 145, 142, 0.771);
+    transition: transform 1s ease-in-out;
+}
+
+.boton_home:hover {
+    transform: scale(1.2);
+}
+
+.boton_home img {
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    margin: auto;
+    display: block;
+}
+
+.cont_boton_home {
+    position: absolute;
+    top: 480px;
+    display: flex;
+    justify-content: center;
+    right: 50%;
+    left: 50%;
+    transform: translateX(-50%); /* Centrar de manera horizontal */
+}
+
+/* responsive Servicios */
+
+@media screen and (max-width: 600px) {
+    .cont_servicios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cont_boton_home {
+        position: relative;
+        right: 0;
+        left: 0;
+        top: 0;
+        transform: none; /* Reiniciar transformación */
+        
+    }
+}
+
+/* FIN de CSS Página de Servicios*/
+    
+/* Formulario compra de productos */
+.pagina_compras{
+    width: 100%;
+    height: 98vh;
+}
+h1.comprar{
+    color: #FFD700;
+    font-size: 50px;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid grey;
+    background-color: transparent;
+}
+.cont_compras{
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin: 60px auto; 
+    height: auto;        
+    max-width: 615px;
+    border: 1px solid;        
+    border-color: rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+}
+.negro_compra{
+    font-size: 21px;
+}
+.negro_compra2{
+    font-size: 22px;
+}
+.rojo_compra{
+    color: red;
+    font-size: 30px;
+}
+div.cubo_compra{
+    position: relative;
+    font-size: 16px;
+    width: 50%;
+    float: left;
+    padding: 20px;
+    color: #FFD700;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    background-color: transparent;
+}
+div.municipio_compra{
+    margin-left: -16px;
+}
+div.pais_compra{
+    margin-left: 20px;
+}
+div.movil_compra{
+    position: absolute;
+    right: 690px;
+    top: 305px;
+}
+.enviar_compra{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #FFD700;
+    color: black;
+    padding: 10px;
+    width: 160px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    left: 40px;
+    font-family: Cinzel;
+    animation: bounce 2s infinite;
+}
+
+@media screen and (max-width:637px){
+    h1.comprar{
+        width: 100%;
+        font-size: 22px;
+    }
+    div.cubo_compra{
+        width: 100%;
+    }
+    .cont_compras{
+        width: 50%;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:600px){
+    h1.comprar{
+        width: 100%;
+    }
+    .cont_compras{
+        width: 50%;
+    }
+    div.cubo_compras{
+        font-size: 16px;
+    }
+    .negro_compra{
+        font-size: 18px;
+    }
+    .rojo_compra{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:540px){
+    h1.comprar{
+        width: 100%;
+    }
+    .cubo_compras{
+        width: 100%;
+        font-size: 12px;
+    }
+    .cont_compras{
+        width: 60%;
+    }
+}
+@media screen and (max-width:426px){
+    h1.comprar{
+        width: 100%;
+    }
+    .negro_compra{
+        font-size: 14px;
+    }
+    div.cubo_compras{
+        width: 75%;
+    }
+}
+@media screen and (max-width:375px){
+    .cont_compras{
+        padding: 10px;
+        width: 100%;
+    }
+    .cubo_compras{
+        width: 70% ;
+    }
+    .negro_compra{
+        font-size: 19px;
+    }
+    .comprar{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:320px){
+    h1.comprar{
+        font-size: 20px;
+    }
+    .cont_compras{
+        width: 75%;
+    }
+}
+/* Formulario mantenimiento productos */
+
+.pagina_form_mantenimiento {
+    width: 100%;
+    height: 98vh;
+}
+
+h1.comprar{
+    color: #FFD700;
+    font-size: 50px;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid grey;
+    background-color: transparent;
+}
+
+.cont_mantenimiento{
+    align-items: center;
+    position: relative;
+    padding: 20px 20px 70px 20px ;
+    align-items: center;
+    margin: 10px auto;
+    height:auto;        
+    max-width: 615px;
+    border: 1px solid;        
+    border-color: rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+}
+
+.negro_compra{
+    font-size: 23px;
+}
+
+.rojo_compra{
+    color: red;
+    font-size: 30px;
+}   
+
+
+div.cubo_mantenimiento{
+    position: relative;
+    font-size: 16px;
+    width: 50%;
+    float: left;
+    padding: 20px;
+    color: #FFD700;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    background-color: transparent;
+    height: 400px;
+}
+
+.descripcion_problema {
+    color: #FFD700;
+    font-size: 20px;
+    padding-top: 22px;
+    position: absolute;   
+    top: 550px;
+    text-align: right;
+    left: 37px;
+}
+
+.area_texto_matenimiento {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position:relative; 
+    top: 50px;
+}
+
+.p_mantenimiento {
+    font-size: 16px;
+    position:relative;
+    padding-bottom: 2px;
+}
+
+.cont_desc_problema {
+    position: relative;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    background-color: transparent;
+    padding-left:20px ;
+    padding-right:20px ;
+    padding-bottom: 62px;
+}
+
+.inputs_mant {
+    margin: 3%;
+    position: relative;
+    top: -22px;
+}
+
+
+.boton_enviar {
+    background-color: #FFD700;
+    color: black;
+    padding: 10px;
+    top: 56px;
+    width: 160px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    left: 35%;
+    font-family: Cinzel;
+    animation: bounce 2s infinite;
+}
+
+
+.boton_enviar:hover {
+    background-color: #6fd037;
+}
+/* Login y Registro */
+
+/* padding general para el formulario */
+
+.formulario_in_reg{
+    padding-top: 70px;
+}
+
+/* Este selector define en la imagen de fondo del formulario */
+
+.fondo_formulario {
+    background-image:url(../IMG/fondo_formulario21.png) ;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    display: flex;
+    backdrop-filter: blur(0px);
+}
+
+/* Aquí definimos el tamaño y las propiedades del Titulo "inicio de sesión" */
+
+.h1_form{
+    margin-top: 20px;
+    padding-top:20px;
+    text-align: center;
+    color: gold;
+    font-size: 48px;
+    font-family: "Cinzel", serif;
+    box-shadow: #aaa;
+    padding-bottom: -110px;
+}
+
+/* Aquí definimos el tamaño y las propiedades del Titulo "registro" */
+
+
+.h1_form_reg {
+    margin-top: 20px;
+    padding-top:20px;
+    text-align: center;
+    color: gold;
+    font-size: 41px;
+    font-family: "Cinzel", serif;
+    box-shadow: #aaa;
+    padding-bottom: -110px;
+
+}
+
+/* Aquí se establece el margen y forma del formulario*/
+
+.formulario, .formulario_in_reg {
+    margin-top: 150px;
+    width: 500px;
+    margin: auto;
+    border-radius: 2%;
+}
+
+/* Este selector define el fondo y forma del Login */
+
+.fondo_login {
+    position: relative;
+    background-color: rgba(71, 70, 67, 0.4);
+    border-radius: 20px;    
+    padding-top: -9px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+
+}
+
+.contenedor_form {
+    width: 100%;
+    padding: auto;
+}
+
+/* Aquí definimos el posicionamiento del logo de Aurum */
+
+.logo_formulario{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
+    width: 50px;
+    height: auto;
+}
+
+/* Aquí definimos el tamaño, forma y animación del propio logo */
+
+.login_img {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    margin: auto;
+    margin-top:15px;
+    margin-bottom: 42px;
+    transition: transform 1s ease-in-out;
+    animation: bounce 2s infinite;
+}
+
+/* Aquí definimos la animación tipo bounce para el logo*/
+
+@keyframes bounce {
+    0% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}    
+}
+
+.login_img .parte {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+/* Aquí definimos la perspectiva de la parte delantera del logo */
+
+.login_img .delantera {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0px 5px 10px black;
+}
+
+/* Se establece el tamaño y posicinamiento de la imagen delantera */
+
+.login_img .delantera img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Aquí definimos la perspectiva de la parte trasera del logo */
+
+.login_img .trasera {
+    transform: perspective(600px) rotateY(180deg);
+    box-shadow: 0px 5px 10px black;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/* Se establece el tamaño y posicinamiento de la imagen trasera */
+
+.login_img .trasera img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Se establece el hover para cuando pasemos el cursor por encima y se active la animación */
+
+.login_img:hover .delantera {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.login_img:hover .trasera {
+    transform: perspective(600px) rotateY(360deg);
+}
+
+.login_img:hover {
+    transform: scale(1);
+    border: solid 2px #fdd700;
+}
+
+.ini_email, .input-contenedor [type="text"], input[type="password"], input[type="email"]{
+    text-align: center;
+    font-size: 24px;
+    width: 80%;
+    padding: 10px;
+    border: none;
+    color: gold;
+    background-color: transparent; 
+}
+
+/* Aquí definimos el tamaño y las propiedades de los iconos que se encuentran dentro de los inputs */
+
+/* Icono Contraseña */
+
+.pass_icon {
+    position: relative;
+    top: 12px;
+    left: 12px;
+    width: 27px;
+    height: 27px;
+    margin-bottom: 10px;
+}
+
+/* Icono Email */
+
+.email_icon {
+    position: relative;
+    top: 6px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+/* Icono Usuario */
+
+.user_icon {
+    position: relative;
+    top: 6px;
+    left: 8px;
+    width: 30px;
+    height: 30px;
+}
+
+/* Este contenedor contiene los inputs de Usuario, Correo Electrónico y Contraseña*/
+
+.input-contenedor {
+    margin-bottom: 25px;
+    border: 2px solid #aaa;
+    border-radius: 20px;
+}
+
+/* Hover de los inputs*/
+
+.input-contenedor:hover {
+    transform: scale(1.1);
+}
+
+/* Aquí establecemos un tipo de fuente en los inputs*/
+
+.input_password, .input_correo, .input_usuario, .button_form {
+    font-family:Arial, Helvetica, sans-serif;   
+}
+
+/* Aquí se definen las propiedades del botón de registro*/
+
+.boton_registro {
+    border: none;
+    width: 100%;
+    font-size: 24px;
+    color: gold;
+    background-color: #303130;
+    padding: 15px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.boton_registro:hover{
+    background-color: #4a2497;
+    transform: scale(1.1);
+}
+
+/* Aquí definimos el fondo para los "terminos de política y privacidad"*/
+
+.fondo_terminos {
+    background-color: #303130;
+    border-radius: 20px;
+}
+
+/* Aquí se definen las propiedades de los parrafos de "terminos de política y privacidad" */
+
+.p_form{
+    margin: 15px 0px;
+    padding: 3px;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+}
+
+/* Aquí se define el link de Inicio de Sesión o Crear cuenta de Aurum */
+
+.link_form{
+    text-decoration: none;
+    color: gold;
+    font-weight: 1px;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+}
+
+/* Aquí definimos un hover para el link*/
+
+.link_form:hover{
+    color: azure;
+}
+
+@media screen and (max-width:637px){
+    h1.comprar{
+        width: 100%;
+        font-size: 22px;
+    }
+    div.cubo_compras, .cubo_mantenimiento{
+        width: 100%;
+    }
+    .cont_compras{
+        width: 50%;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:600px){
+    h1.comprar{
+        width: 100%;
+    }
+    .cont_compras{
+        width: 50%;
+    }
+    div.cubo_compras, .cubo_mantenimiento{
+        font-size: 16px;
+    }
+    .negro_compra{
+        font-size: 18px;
+    }
+    .rojo_compra{
+        font-size: 18px;
+    }
+
+    .descripcion_problema {
+        position: relative;
+        top: 35px;
+        left: 2px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .boton_enviar {
+       align-items: center;
+    }
+
+    .txt-area-mant {
+        width: 180px;
+    }
+}
+@media screen and (max-width:540px){
+    h1.comprar{
+        width: 100%;
+    }
+    .cubo_compras, .cubo_mantenimiento{
+        width: 100%;
+        font-size: 12px;
+    }
+    .cont_compras{
+        width: 60%;
+    }
+}
+@media screen and (max-width:426px){
+    h1.comprar{
+        width: 100%;
+    }
+    .negro_compra{
+        font-size: 14px;
+    }
+    div.cubo_compras, .cubo_mantenimiento{
+        width: 75%;
+    }
+}
+@media screen and (max-width:375px){
+    .cont_compras{
+        padding: 10px;
+        width: 100%;
+    }
+    .cubo_compras, .cubo_mantenimiento{
+        width: 75% ;
+    }
+}
+@media screen and (max-width:320px){
+    h1.comprar{
+        font-size: 20px;
+    }
+    .cont_compras{
+        width: 75%;
+    }
+}

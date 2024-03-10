@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="shortcut icon" href="IMG/favicon-aurum2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <title>Compras Aurum</title>
+</head>
+<body>
+    <header>
+        <div class="menu_bar">
+            <a href="#" class="bt-menu"><i class="fa fa-bars" style="font-size: 30px;"></i>⚜ Aurum Games ⚜</a>
+        </div>
+        <div class="logo"><a href="index.html">⚜ Aurum Games ⚜</a></div>
+        <nav>
+            <ul>
+                <li class="submenu">
+                    <a href="#"><span><img src="Icons/juegos.png" alt=""></span> Juegos</a>
+                    <ul class="children">
+                        <li><a href="juegos.html#accion">Accion</a></li>
+                        <li><a href="juegos.html#aventuras">Aventuras</a></li>
+                        <li><a href="juegos.html#estrategia">Estrategia</a></li>
+                        <li><a href="juegos.html#deportes">Deportes</a></li>
+                        <li><a href="juegos.html#simulacion">Simulación</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><span><img src="Icons/consolas.png" alt=""></span> Consolas</a>
+                    <ul class="children">
+                        <li><a href="consolas.html#playstation">PlayStation</a></li>
+                        <li><a href="consolas.html#xbox">XBox</a></li>
+                        <li><a href="consolas.html#nintendo">Nintendo</a></li>
+                        <li><a href="consolas.html#pc">PC</a></li>
+                        <li><a href="consolas.html#vr">Gafas VR</a></li>
+                    </ul>
+                </li>
+                <li><a href="servicios.html"><span><img src="Icons/servicios.png" alt=""></span> Servicios</a></li>
+                <li><a href="index.html#quienes_somos"><span><img src="Icons/quienes somos.png" alt=""></span> Quienes somos</a></li>
+                <li class="submenu">
+                    <a href="#"><span><img src="Icons/Identificate.png" alt=""></span> Identificate</a>
+                    <ul class="children">
+                        <li><a href="formulario-inicio-sesion.html">Iniciar Sesion</a></li>
+                        <li><a href="formulario-registro.html">Registrarse</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="pagina_compras">
+        <div class="cont_compras">
+            <form action="#">
+                <h1 class="comprar">Compra del Producto</h1>
+                <div class="cubo_compra">
+                    <b class="negro_compra">Datos Personales</b><sup class="rojo_compra">*</sup>
+                    <br>Nombre
+                    <br><input type="text" name="nombre" size="22" placeholder="Nombre">
+                    <br>Apellidos
+                    <br><input type="text" name="nombre" size="22" placeholder="Apellidos">
+                    <br>
+                    <br><b class="negro_compra">Email</b> 
+                    <br><input type="mail" name="mail" size="22" placeholder="ej: aurum@ejemplo.com">
+                    <br><b class="negro_compra">Número de tarjeta</b><sup class="rojo_compra">*</sup>
+                    <br><input type="tel" name="cuenta de banco" size="22" class="input_compras" placeholder="**** **** ****">
+                    <br><b class="negro_compra">CVV</b>
+                    <br><input type="number" name="CVV" size="10" min="16" max="16" placeholder="***">
+                </div>
+                <div class="cubo_compra">
+                    <b class="negro_compra2">Dirección</b><sup class="rojo_compra">*</sup> 
+                    <br>Calle, número, piso, puerta
+                    <br><input type="text" name="dirección" size="22"> 
+                    <br>Código Postal
+                    <br><input type="text" name="cp" size="22">
+                    <br>Ciudad 
+                    <br><input type="text" name="ciudad" size="22">
+                    <br>Provincia
+                    <br><input type="text" name="provincia" size="22">
+                    <br><b class="negro_compra">Teléfono</b>
+                    <br><input type="tel" name="Teléfono" size="22" class="input_compras" placeholder="ej: +34 123456789">
+                    <br>
+                    <br><input type="submit" value="Comprar" class="enviar_compra">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).ready(main);
+
+        var contador = 1;
+
+        function main () {
+            $('.fa-bars').click(function(){
+                if (contador == 1) {
+                    $('nav').animate({
+                        left: '0'
+                    });
+                    contador = 0;
+                } else {
+                    contador = 1;
+                    $('nav').animate({
+                        left: '-100%'
+                    });
+                }
+            });
+
+            // Mostramos y ocultamos submenus
+            $('.submenu').click(function(){
+                $(this).children('.children').slideToggle();
+            });
+        }
+    </script>
+</body>
+</html>
