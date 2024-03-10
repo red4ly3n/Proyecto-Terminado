@@ -739,16 +739,6 @@ div.cubo_mantenimiento{
     padding-bottom: 2px;
 }
 
-.cont_desc_problema {
-    position: relative;
-    margin-bottom: 30px;
-    border: 1px solid rgba(255, 255, 255, .4);
-    border-radius: 20px;
-    background-color: transparent;
-    padding-left:20px ;
-    padding-right:20px ;
-    padding-bottom: 62px;
-}
 
 .inputs_mant {
     margin: 3%;
